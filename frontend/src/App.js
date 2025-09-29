@@ -1,13 +1,18 @@
 import React from 'react';
-import NavBar from '.src/components/Navbar';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NavBar from './components/Navbar';
 import Home from './pages/Home';
+import MoviePage from './components/MoviePage';
 
 function App() {
   return (
-    <div>
+    <Router>
       <NavBar />
-      <Home />
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MoviePage />} />
+      </Routes>
+    </Router>
   );
 }
 
